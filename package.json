@@ -1,0 +1,16 @@
+{
+  "name": "vr-classroom-strategy-game",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VR Classroom Strategy Game (Teacher dashboard + Student mobile UI + World view) using Node.js + Socket.IO.",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "node server/index.js",
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}
+

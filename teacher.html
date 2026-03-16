@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Dashboard | VR Classroom Strategy Game</title>
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="teacher.css" />
+  </head>
+  <body class="teacher">
+    <header class="topbar">
+      <a class="brand" href="/index.html">Kingdom Classroom</a>
+      <div class="statuspill" id="statusPill">Offline</div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h1>Teacher Dashboard</h1>
+
+        <div class="row">
+          <button id="createSessionBtn" class="btn primary">Create Session</button>
+          <input id="joinCodeInput" class="input" placeholder="Join existing code" maxlength="6" />
+          <input id="teacherKeyInput" class="input" placeholder="Teacher key" maxlength="32" />
+          <button id="joinSessionBtn" class="btn">Join</button>
+        </div>
+
+        <div class="sessionbox" id="sessionBox" hidden>
+          <div class="sessionline">
+            <div>
+              <div class="label">Session Code</div>
+              <div class="code" id="sessionCode">------</div>
+            </div>
+            <div>
+              <div class="label">Teacher Key (keep private)</div>
+              <div class="key" id="teacherKey">------------</div>
+            </div>
+            <div class="links">
+              <a class="link" id="studentLink" target="_blank" rel="noreferrer">Student Link</a>
+              <a class="link" id="worldLink" target="_blank" rel="noreferrer">World Link</a>
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="field">
+              <span>Phase</span>
+              <select id="phaseSelect" class="input">
+                <option value="0">Lobby</option>
+                <option value="1">1: Castle</option>
+                <option value="2">2: Wall</option>
+                <option value="3">3: Army</option>
+                <option value="4">4: Vocabulary</option>
+                <option value="5">5: Battle</option>
+              </select>
+            </label>
+            <button id="startPhaseBtn" class="btn primary">Start Phase</button>
+            <button id="endSessionBtn" class="btn danger">End Session</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Question Control</h2>
+        <div class="row">
+          <label class="field">
+            <span>Question ID</span>
+            <input id="questionIdInput" class="input" placeholder="e.g., p1-1" />
+          </label>
+          <button id="askQuestionBtn" class="btn primary">Ask</button>
+          <button id="askNextBtn" class="btn">Ask Next</button>
+        </div>
+
+        <div class="quickpad" id="quickPad" hidden></div>
+
+        <details class="details">
+          <summary>Upload Question Bank (JSON)</summary>
+          <p class="hint">Upload an array of questions. Server has a built-in bank if you skip this.</p>
+          <input id="bankFileInput" type="file" accept="application/json" />
+          <button id="uploadBankBtn" class="btn">Upload</button>
+        </details>
+
+        <div class="currentq" id="currentQuestion" hidden></div>
+      </section>
+
+      <section class="panel">
+        <h2>Live Monitoring</h2>
+        <div class="grid" id="teamsGrid"></div>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/teacher.js"></script>
+  </body>
+</html>

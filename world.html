@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World View | VR Classroom Strategy Game</title>
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="world.css" />
+  </head>
+  <body class="world">
+    <header class="topbar">
+      <a class="brand" href="/index.html">Kingdom Classroom</a>
+      <div class="statuspill" id="statusPill">Offline</div>
+    </header>
+
+    <main class="worldwrap">
+      <section class="panel worldpanel">
+        <div class="row">
+          <input id="codeInput" class="input code" placeholder="SESSION CODE" maxlength="6" />
+          <button id="watchBtn" class="btn primary">Watch</button>
+          <div class="phasepill" id="phasePill">Phase: Lobby</div>
+        </div>
+        <canvas id="map" width="1100" height="600"></canvas>
+        <div class="legend" id="legend"></div>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/world.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,143 @@
+:root{
+  --bg0: #0b1020;
+  --bg1: #121a33;
+  --ink: #e9eefc;
+  --muted: rgba(233,238,252,.72);
+  --card: rgba(255,255,255,.06);
+  --line: rgba(255,255,255,.14);
+  --shadow: 0 18px 55px rgba(0,0,0,.45);
+  --radius: 18px;
+  --radius2: 12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 700px at 12% 18%, rgba(34,211,238,.15), transparent 55%),
+    radial-gradient(900px 520px at 78% 10%, rgba(251,191,36,.12), transparent 60%),
+    radial-gradient(900px 650px at 65% 90%, rgba(124,58,237,.10), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  font-family: "Bahnschrift", "Segoe UI Variable Text", "Segoe UI", "Trebuchet MS", ui-sans-serif, system-ui, sans-serif;
+}
+
+a{color:inherit}
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 18px;
+  position:sticky;
+  top:0;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(10,16,32,.82), rgba(10,16,32,.35));
+  border-bottom:1px solid var(--line);
+}
+.brand{
+  text-decoration:none;
+  font-weight:800;
+  letter-spacing:.4px;
+}
+.statuspill, .phasepill{
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.06);
+  font-size:12px;
+  color:var(--muted);
+}
+.btn{
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.06);
+  color:var(--ink);
+  padding:10px 12px;
+  border-radius:12px;
+  cursor:pointer;
+  box-shadow: 0 6px 22px rgba(0,0,0,.25);
+}
+.btn:hover{background: rgba(255,255,255,.09)}
+.btn:active{transform: translateY(1px)}
+.btn.primary{
+  border-color: rgba(251,191,36,.55);
+  background: linear-gradient(180deg, rgba(251,191,36,.22), rgba(251,191,36,.10));
+}
+.btn.danger{
+  border-color: rgba(248,113,113,.6);
+  background: linear-gradient(180deg, rgba(248,113,113,.20), rgba(248,113,113,.10));
+}
+.input{
+  width:100%;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background: rgba(10,16,32,.45);
+  color: var(--ink);
+  outline:none;
+}
+.input:focus{border-color: rgba(251,191,36,.6); box-shadow: 0 0 0 3px rgba(251,191,36,.12)}
+.input.code{
+  text-transform: uppercase;
+  letter-spacing:.25em;
+  font-weight:800;
+}
+.panel{
+  border:1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding:16px;
+}
+.row{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+.layout{max-width:1100px; margin: 22px auto; padding:0 14px; display:grid; gap:14px}
+.label{font-size:12px; color:var(--muted)}
+.hint{color:var(--muted); font-size:13px; margin:8px 0 0}
+.details summary{cursor:pointer; color:var(--muted)}
+
+.shell{max-width:1050px;margin:0 auto;padding:34px 14px}
+.hero{
+  padding:22px 18px;
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(900px 420px at 15% 40%, rgba(34,211,238,.14), transparent 60%),
+    radial-gradient(900px 420px at 75% 25%, rgba(251,191,36,.14), transparent 58%),
+    rgba(255,255,255,.04);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  position:relative;
+}
+.sigil{
+  position:absolute;
+  right:-120px;
+  top:-120px;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  background: conic-gradient(from 220deg, rgba(34,211,238,.25), rgba(251,191,36,.20), rgba(124,58,237,.18), rgba(34,211,238,.25));
+  filter: blur(1px);
+}
+.hero h1{margin:0; font-size:38px; letter-spacing:.2px}
+.lede{margin:10px 0 0; color: var(--muted); max-width:70ch}
+.cards{display:grid; gap:12px; grid-template-columns: repeat(3, minmax(0,1fr)); margin-top:14px}
+.card{
+  display:block;
+  text-decoration:none;
+  padding:16px;
+  border-radius: var(--radius);
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.05);
+  transition: transform .12s ease, background .12s ease;
+}
+.card:hover{transform: translateY(-2px); background: rgba(255,255,255,.08)}
+.card h2{margin:0 0 6px}
+.card p{margin:0; color: var(--muted)}
+.foot{margin-top:14px; color: var(--muted); font-size:13px}
+
+@media (max-width: 880px){
+  .cards{grid-template-columns: 1fr}
+  .hero h1{font-size:30px}
+}
+

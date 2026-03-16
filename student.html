@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student | VR Classroom Strategy Game</title>
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="student.css" />
+  </head>
+  <body class="student">
+    <header class="topbar">
+      <a class="brand" href="/index.html">Kingdom Classroom</a>
+      <div class="statuspill" id="statusPill">Offline</div>
+    </header>
+
+    <main class="layout">
+      <section class="panel" id="joinPanel">
+        <h1>Join Session</h1>
+        <div class="row">
+          <input id="codeInput" class="input code" placeholder="CODE" maxlength="6" />
+          <input id="nameInput" class="input" placeholder="Your name" maxlength="24" />
+          <button id="joinBtn" class="btn primary">Join</button>
+        </div>
+        <p class="hint">Tip: your device stores a rejoin token after the first join.</p>
+      </section>
+
+      <section class="panel" id="playPanel" hidden>
+        <div class="teamhead">
+          <div class="badge" id="teamBadge" aria-hidden="true"></div>
+          <div>
+            <div class="label">Team</div>
+            <div class="teamname" id="teamName">---</div>
+          </div>
+          <div class="phasepill" id="phasePill">Phase: Lobby</div>
+        </div>
+
+        <div class="qbox" id="questionBox" hidden>
+          <div class="qmeta">
+            <div class="qtitle">Question</div>
+            <div class="timer" id="timer">--</div>
+          </div>
+          <div class="qprompt" id="qPrompt"></div>
+          <div class="choices" id="choices"></div>
+          <div class="row">
+            <input id="answerInput" class="input" placeholder="Type your answer" />
+            <button id="submitBtn" class="btn primary">Submit</button>
+          </div>
+          <div class="result" id="resultLine"></div>
+        </div>
+
+        <div class="panel2">
+          <h2>Mission Panel</h2>
+          <div class="mini" id="missionText">Waiting for teacher…</div>
+        </div>
+
+        <div class="panel2">
+          <h2>Leaderboard</h2>
+          <div class="leader" id="leaderboard"></div>
+        </div>
+
+        <div class="panel2">
+          <h2>World Interaction</h2>
+          <div class="mini">Move your marker near your team castle (shown in World View).</div>
+          <div class="dpad" aria-label="Movement controls">
+            <button class="btn" id="moveUp" type="button">Up</button>
+            <div class="dpadrow">
+              <button class="btn" id="moveLeft" type="button">Left</button>
+              <button class="btn" id="moveDown" type="button">Down</button>
+              <button class="btn" id="moveRight" type="button">Right</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/student.js"></script>
+  </body>
+</html>
